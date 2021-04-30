@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.image.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
+
+<SplitPane dividerPositions="0.5" minHeight="200.0" minWidth="300.0" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/11.0.2" xmlns:fx="http://javafx.com/fxml/1" fx:controller="FindRoadSignB20Application.Controller">
+    <AnchorPane id="AnchorPaneLeft" fx:id="anchorPaneLeft" minHeight="0.0" minWidth="0.0" prefHeight="403.0" prefWidth="296.0">
+        <Button id="openPath" fx:id="openPathButton" layoutX="11.0" layoutY="40.0" mnemonicParsing="false" onAction="#openPathOnAction" text="Open" />
+        <TextField id="pathField" fx:id="pathField" layoutX="57.0" layoutY="40.0" prefHeight="25.0" prefWidth="228.0" />
+        <ImageView fx:id="actuallImageView" fitHeight="205.0" fitWidth="273.0" layoutX="12.0" layoutY="75.0" pickOnBounds="true" preserveRatio="true" />
+        <Button fx:id="previousImage" layoutX="108.0" layoutY="297.0" mnemonicParsing="false" onAction="#previousImageOnAction" text="&lt;--" />
+        <Button fx:id="nextImage" layoutX="154.0" layoutY="297.0" mnemonicParsing="false" onAction="#nextImageOnAction" text="--&gt;" />
+        <Button fx:id="recognize" layoutX="108.0" layoutY="353.0" mnemonicParsing="false" onAction="#recognizeOnAction" prefHeight="25.0" prefWidth="80.0" text="Recognize" />
+        <Label contentDisplay="CENTER" layoutX="101.0" layoutY="14.0" prefHeight="25.0" prefWidth="141.0" text="Path to the current image:" />
+    </AnchorPane>
+    <AnchorPane id="AnchorPaneRight" fx:id="anchorPaneRight" maxHeight="-Infinity" maxWidth="1.7976931348623157E308" minHeight="150.0" minWidth="200.0" prefHeight="420.0" prefWidth="296.0">
+        <Label fx:id="result" alignment="CENTER" contentDisplay="CENTER" layoutX="108.0" layoutY="37.0" prefHeight="35.0" prefWidth="80.0" text="Result:" visible="false">
+         <font>
+            <Font size="24.0" />
+         </font></Label>
+      <ImageView fx:id="imageRecognizedImageView" disable="true" fitHeight="139.0" fitWidth="149.0" layoutX="75.0" layoutY="127.0" pickOnBounds="true" preserveRatio="true" />
+      <Label fx:id="nameSignLabel" alignment="CENTER" layoutY="289.0" prefHeight="35.0" prefWidth="296.0" visible="false">
+         <font>
+            <Font size="18.0" />
+         </font></Label>
+    </AnchorPane>
+</SplitPane>
