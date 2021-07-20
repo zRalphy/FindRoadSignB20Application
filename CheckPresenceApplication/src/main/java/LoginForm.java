@@ -1,5 +1,11 @@
 
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.swing.JFrame;
+import javax.swing.JOptionPane;
 
 /*
  * To change this license header, choose License Headers in Project Properties.
@@ -38,7 +44,7 @@ public class LoginForm extends javax.swing.JFrame {
         jLabel_PASS = new javax.swing.JLabel();
         jLabel5 = new javax.swing.JLabel();
         jTextField_User = new javax.swing.JTextField();
-        jPasswordField1 = new javax.swing.JPasswordField();
+        jPasswordFieldPass = new javax.swing.JPasswordField();
         jButtonLogin = new javax.swing.JButton();
         jButtonCancel = new javax.swing.JButton();
         jLabelRegister = new javax.swing.JLabel();
@@ -112,9 +118,9 @@ public class LoginForm extends javax.swing.JFrame {
             }
         });
 
-        jPasswordField1.setBackground(new java.awt.Color(108, 122, 137));
-        jPasswordField1.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
-        jPasswordField1.setForeground(new java.awt.Color(228, 241, 254));
+        jPasswordFieldPass.setBackground(new java.awt.Color(108, 122, 137));
+        jPasswordFieldPass.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        jPasswordFieldPass.setForeground(new java.awt.Color(228, 241, 254));
 
         jButtonLogin.setBackground(new java.awt.Color(34, 167, 240));
         jButtonLogin.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
@@ -161,7 +167,7 @@ public class LoginForm extends javax.swing.JFrame {
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addComponent(jButtonLogin, javax.swing.GroupLayout.PREFERRED_SIZE, 85, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addComponent(jTextField_User, javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(jPasswordField1, javax.swing.GroupLayout.Alignment.TRAILING))
+                    .addComponent(jPasswordFieldPass, javax.swing.GroupLayout.Alignment.TRAILING))
                 .addContainerGap(93, Short.MAX_VALUE))
         );
         jPanel3Layout.setVerticalGroup(
@@ -174,7 +180,7 @@ public class LoginForm extends javax.swing.JFrame {
                 .addGap(18, 18, 18)
                 .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jLabel_PASS)
-                    .addComponent(jPasswordField1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(jPasswordFieldPass, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
                 .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jButtonLogin, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -215,7 +221,38 @@ public class LoginForm extends javax.swing.JFrame {
     }//GEN-LAST:event_jLabelMinMouseClicked
 
     private void jButtonLoginActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonLoginActionPerformed
-        // TODO add your handling code here:
+          
+        PreparedStatement st;
+        ResultSet rs;
+        
+        // get the user name & password
+        String username = jTextField_User.getText();
+        String password = String.valueOf(jPasswordFieldPass.getPassword());
+        
+        //create a select query to check if the username and password exist in database
+        String query = "SELECT * FROM users WHERE 'username' = ? AND 'password' = ?";
+        try {
+            st = DbConnection.getConnection().prepareStatement(query);
+            
+            st.setString(1, username);
+            st.setString(2, password);
+            rs = st.executeQuery();
+            
+            if(rs.next()) {
+                //show a new form
+                AdministratorForm admform = new AdministratorForm();
+                admform.setVisible(true);
+                admform.pack();
+                admform.setLocationRelativeTo(null);
+                //close the current form -> (login form)
+                this.dispose();
+            } else {
+                //error message
+                JOptionPane.showMessageDialog(null,"Ivalid Username / Password", " Login Error", 2);
+            }
+        } catch(SQLException ex) {
+            Logger.getLogger(LoginForm.class.getName()).log(Level.SEVERE,null,ex);
+        }
     }//GEN-LAST:event_jButtonLoginActionPerformed
 
     private void jButtonCancelActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonCancelActionPerformed
@@ -277,7 +314,7 @@ public class LoginForm extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel_PASS;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel3;
-    private javax.swing.JPasswordField jPasswordField1;
+    private javax.swing.JPasswordField jPasswordFieldPass;
     private javax.swing.JTextField jTextField_User;
     // End of variables declaration//GEN-END:variables
 }

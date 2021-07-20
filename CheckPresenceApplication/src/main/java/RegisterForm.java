@@ -41,14 +41,12 @@ public class RegisterForm extends javax.swing.JFrame {
         jLabel6 = new javax.swing.JLabel();
         jTextField_LN = new javax.swing.JTextField();
         jLabel7 = new javax.swing.JLabel();
-        jPasswordField_IDN = new javax.swing.JPasswordField();
         jLabel8 = new javax.swing.JLabel();
         jPasswordField_RPASS = new javax.swing.JPasswordField();
-        jLabel9 = new javax.swing.JLabel();
-        jDateChooser_BD = new com.toedter.calendar.JDateChooser();
         jButtonCancel = new javax.swing.JButton();
         jButtonRegister = new javax.swing.JButton();
         jLabelRegister = new javax.swing.JLabel();
+        jTextField_IDN = new javax.swing.JTextField();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setUndecorated(true);
@@ -148,10 +146,6 @@ public class RegisterForm extends javax.swing.JFrame {
         jLabel7.setForeground(new java.awt.Color(236, 240, 241));
         jLabel7.setText("Id number:");
 
-        jPasswordField_IDN.setBackground(new java.awt.Color(108, 122, 137));
-        jPasswordField_IDN.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
-        jPasswordField_IDN.setForeground(new java.awt.Color(228, 241, 254));
-
         jLabel8.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
         jLabel8.setForeground(new java.awt.Color(236, 240, 241));
         jLabel8.setText("Retype pass:");
@@ -159,13 +153,6 @@ public class RegisterForm extends javax.swing.JFrame {
         jPasswordField_RPASS.setBackground(new java.awt.Color(108, 122, 137));
         jPasswordField_RPASS.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         jPasswordField_RPASS.setForeground(new java.awt.Color(228, 241, 254));
-
-        jLabel9.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
-        jLabel9.setForeground(new java.awt.Color(236, 240, 241));
-        jLabel9.setText("BirthDate:");
-
-        jDateChooser_BD.setBackground(new java.awt.Color(108, 122, 137));
-        jDateChooser_BD.setForeground(new java.awt.Color(228, 241, 254));
 
         jButtonCancel.setBackground(new java.awt.Color(242, 38, 19));
         jButtonCancel.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
@@ -179,8 +166,6 @@ public class RegisterForm extends javax.swing.JFrame {
         jButtonRegister.setBackground(new java.awt.Color(34, 167, 240));
         jButtonRegister.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         jButtonRegister.setText("Register");
-        jButtonRegister.setMaximumSize(new java.awt.Dimension(89, 25));
-        jButtonRegister.setMinimumSize(new java.awt.Dimension(89, 25));
         jButtonRegister.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButtonRegisterActionPerformed(evt);
@@ -194,6 +179,15 @@ public class RegisterForm extends javax.swing.JFrame {
         jLabelRegister.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 jLabelRegisterMouseClicked(evt);
+            }
+        });
+
+        jTextField_IDN.setBackground(new java.awt.Color(108, 122, 137));
+        jTextField_IDN.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        jTextField_IDN.setForeground(new java.awt.Color(228, 241, 254));
+        jTextField_IDN.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                jTextField_IDNKeyTyped(evt);
             }
         });
 
@@ -223,20 +217,17 @@ public class RegisterForm extends javax.swing.JFrame {
                         .addGap(78, 78, 78)
                         .addComponent(jLabel7)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jPasswordField_IDN))
+                        .addComponent(jTextField_IDN))
                     .addGroup(jPanel2Layout.createSequentialGroup()
                         .addContainerGap(66, Short.MAX_VALUE)
-                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(jLabel9)
-                            .addComponent(jLabel8))
+                        .addComponent(jLabel8)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
                                 .addComponent(jButtonCancel, javax.swing.GroupLayout.PREFERRED_SIZE, 90, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 47, Short.MAX_VALUE)
                                 .addComponent(jButtonRegister, javax.swing.GroupLayout.PREFERRED_SIZE, 90, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addComponent(jPasswordField_RPASS)
-                            .addComponent(jDateChooser_BD, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
+                            .addComponent(jPasswordField_RPASS))))
                 .addGap(58, 58, 58))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
                 .addGap(0, 0, Short.MAX_VALUE)
@@ -255,9 +246,9 @@ public class RegisterForm extends javax.swing.JFrame {
                     .addComponent(jLabel6)
                     .addComponent(jTextField_LN, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
-                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jPasswordField_IDN, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel7))
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(jLabel7)
+                    .addComponent(jTextField_IDN, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jPasswordField_PASS, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -266,11 +257,7 @@ public class RegisterForm extends javax.swing.JFrame {
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel8)
                     .addComponent(jPasswordField_RPASS, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(18, 18, 18)
-                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(jLabel9)
-                    .addComponent(jDateChooser_BD, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 52, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 92, Short.MAX_VALUE)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jButtonCancel, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jButtonRegister, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE))
@@ -330,6 +317,13 @@ public class RegisterForm extends javax.swing.JFrame {
         this.dispose();
     }//GEN-LAST:event_jLabelRegisterMouseClicked
 
+    private void jTextField_IDNKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTextField_IDNKeyTyped
+        //allow only numbers
+        if(!Character.isDigit(evt.getKeyChar())){
+            evt.consume();
+        }
+    }//GEN-LAST:event_jTextField_IDNKeyTyped
+
     /**
      * @param args the command line arguments
      */
@@ -368,23 +362,21 @@ public class RegisterForm extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton jButtonCancel;
     private javax.swing.JButton jButtonRegister;
-    private com.toedter.calendar.JDateChooser jDateChooser_BD;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel8;
-    private javax.swing.JLabel jLabel9;
     private javax.swing.JLabel jLabelClose;
     private javax.swing.JLabel jLabelMin;
     private javax.swing.JLabel jLabelRegister;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
-    private javax.swing.JPasswordField jPasswordField_IDN;
     private javax.swing.JPasswordField jPasswordField_PASS;
     private javax.swing.JPasswordField jPasswordField_RPASS;
     private javax.swing.JTextField jTextField_FN;
+    private javax.swing.JTextField jTextField_IDN;
     private javax.swing.JTextField jTextField_LN;
     // End of variables declaration//GEN-END:variables
 }

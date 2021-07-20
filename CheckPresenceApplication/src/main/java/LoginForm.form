@@ -139,7 +139,7 @@
                           <Component id="jButtonLogin" min="-2" pref="85" max="-2" attributes="0"/>
                       </Group>
                       <Component id="jTextField_User" alignment="1" max="32767" attributes="0"/>
-                      <Component id="jPasswordField1" alignment="1" max="32767" attributes="0"/>
+                      <Component id="jPasswordFieldPass" alignment="1" max="32767" attributes="0"/>
                   </Group>
                   <EmptySpace pref="93" max="32767" attributes="0"/>
               </Group>
@@ -156,7 +156,7 @@
                   <EmptySpace type="separate" max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="0" attributes="0">
                       <Component id="jLabel_PASS" min="-2" max="-2" attributes="0"/>
-                      <Component id="jPasswordField1" alignment="0" min="-2" max="-2" attributes="0"/>
+                      <Component id="jPasswordFieldPass" alignment="0" min="-2" max="-2" attributes="0"/>
                   </Group>
                   <EmptySpace type="separate" max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="0" attributes="0">
@@ -209,7 +209,7 @@
             <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jTextField_UserActionPerformed"/>
           </Events>
         </Component>
-        <Component class="javax.swing.JPasswordField" name="jPasswordField1">
+        <Component class="javax.swing.JPasswordField" name="jPasswordFieldPass">
           <Properties>
             <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
               <Color blue="89" green="7a" red="6c" type="rgb"/>
